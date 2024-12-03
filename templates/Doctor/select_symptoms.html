@@ -1,0 +1,39 @@
+{% extends "Doctor/doctor_index.html" %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+
+<h3 align="center"> </h3>
+  <div align="center">
+  <form method="post" action="" >
+    <table  border="0" style="margin-left: 10%">
+           {% for i in range(0,ln, 5) %}
+      <tr>
+        <td height="64"><input type="checkbox" name="symp" value="{{ data[i] }}">{{ data[i] }}</td>
+        <td><input type="checkbox" name="symp" value="{{ data[i + 1] }}">{{ data[i + 1] }}</td>
+        <td><input type="checkbox" name="symp" value="{{ data[i + 2] }}">{{ data[i + 2] }}</td>
+        <td><input type="checkbox" name="symp" value="{{ data[i + 3] }}">{{ data[i + 3] }}</td>
+        <td><input type="checkbox" name="symp" value="{{ data[i + 4] }}">{{ data[i + 4] }}</td>
+      </tr>
+{% endfor %}
+    <tr>
+        <td></td>
+        <td></td>
+    <td><input type="submit" class="btn btn-primary" value="Predict" ></td>
+    </tr>
+    <tr>
+        <th align="center"> Result: {{ p }} </th>
+
+    </tr>
+      </table>
+  </form>
+</div>
+</body>
+</html>
+{% endblock %}

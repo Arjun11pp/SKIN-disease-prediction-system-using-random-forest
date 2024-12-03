@@ -1,0 +1,38 @@
+{% extends "admin/index.html" %}
+{% block body %}
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-bordered" border="1">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Disease Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Type</th>
+      <th scope="col">how to cure</th>
+      <th scope="col">&nbsp;</th>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>{{ loop.index }}</td>
+      <td>{{ i.disease_name }}</td>
+      <td>{{ i.description }}&nbsp;</td>
+      <td>&nbsp;{{ i.dtype }}</td>
+      <td>&nbsp;{{ i.how_to_cure }}</td>
+      <td>
+      <p><a href="/delete_disease/{{ i.disease_id }}" class="btn btn-danger">Delete</a></p>
+      <td><p><a href="/admin_add_symptom/{{ i.disease_id }}" class="btn btn-primary">Add Symptom</a></p></td>
+      <td><p><a href="/admin_view_symptom/{{ i.disease_id }}" class="btn btn-warning">View Symptom</a></p></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

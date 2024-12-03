@@ -1,0 +1,41 @@
+{% extends "doctor/doctor_index.html" %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table class="table table-bordered" border="1">
+    <tr>
+      <th scope="row">Choose file</th>
+      <td>
+      <input type="file" name="fileField" id="fileField"  class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td colspan="2" scope="row" align="center"><input type="submit" name="button" id="button" value="Submit"  class="btn btn-primary"/></td>
+    </tr>
+    <tr>
+    {% if data %}
+      <th scope="row">Result</th>
+        {% if data=='Acne and Rosacea' %}
+        <td align="center"><h2><font color="red">Acne and Rosacea</font></h2>&nbsp;</td>
+        {% elif data=='Actinic Keratosis' %}
+                <td align="center"><h2><font color="red">Actinic Keratosis</font></h2>&nbsp;</td>
+        {% elif data=='Atopic Dermatitis' %}
+                        <td align="center"><h2><font color="red">Atopic Dermatitis</font></h2>&nbsp;</td>
+        {% else %}
+                                <td align="center"><h2><font color="red">Bullous Disease</font></h2>&nbsp;</td>
+        {% endif %}
+        {% else %}
+    <td></td>
+    {% endif %}
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}
